@@ -1,36 +1,19 @@
 <!DOCTYPE html>
 <html>
-
-<body>
-    <div id="root"></div>
-</body>
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-<!-- React Js는 엔진과 같음 
-        interactive한 UI를 만들 수 있게 함  -->
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<!--React dom은 React element를 html에 두는 역할  -->
-<script>
-    const root = document.getElementById("root");
-    // const sp = React.createElement("span", {id:"sexy-span", style: {color:"red"} }, "Hello I'm span"); 
-    // "span"(element), props(property,eventlistener 설정), content
-    // **여기서 javascript를 이용해 element를 생성했고 React Js가 html로 변역
-    const h3 = React.createElement(
-        "h3",
-        {
-            onMouseEnter: () => console.log("mouse enter"),
-        },
-        "Hello I'm span"); 
-    const btn = React.createElement(
-        "button",
-        {
-            onClick: () => console.log("I'm clicked"), //eventlistener역할
-            style: {
-                backgroundColor: "tomato",
-            },
-        },
-        "Click me");
-    const container = React.createElement("div", null, [h3, btn]);
-    ReactDOM.render(container, root);
-</script>
-
+    <body>
+        <span>Total click: 0</span>
+        <button id="btn">Click me</button>
+    </body>
+    <!-- 1) html 만들고 -->
+    <script>
+        let counter = 0;
+        const button = document.getElementById("btn");
+        const span = document.querySelector("span");
+        // 2) javascript에서 가져와
+        function handleClick(){
+            counter = counter+1; //4) 데이터 업데이트
+            span.innerText = `Total clicks: ${counter}`; //5) html 업데이트
+        }
+        button.addEventListener("click", handleClick); // 3) event 감지
+    </script>
 </html>
