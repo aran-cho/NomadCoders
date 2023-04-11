@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+    // 리액트는 업데이트 된 부분만(counter부분) 엘리먼트에서 확인 가능 (장점)
+    // 최고의 방법 X
+    // let counter = 0;
+    // function countUp() {
+    //     counter = counter + 1;
+    //     render();
+    // }
+    // function render(){
+    //     ReactDOM.render(<App/>, root); //리렌더링 하면 증가해서 업데이트된 counter를 가진 container가 됌.
+    // }
+    // const App = () =>(
+    //         <div>
+    //         <h3>Total clicks: 0</h3>
+    //         <button>Click me</button>
+    //     </div>
+    //     );
+    // render();
+    // let counter = 0;
+    function App () {
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter + 1);
+            // ReactDOM.render(<App/>, root); // 파일이 많거나 폼, 로그인, 알림, 비디오 플레이어 등등 다룰때 일일히 렌더 하기 힘듦. 따라서 위의 코드와 같이 사용
+        }
+        return(
+        <div>
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={onClick}>Click me</button>
+        </div>
+        );
+    }
+    ReactDOM.render(<App/>, root);
+</script>
+</html>
