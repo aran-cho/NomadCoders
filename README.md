@@ -1,3 +1,8 @@
 # NomadCoders
 
-react 강의
+React 강의 개인공부
+
+#1 [2021 UPDATE] INTRODUCTION
+#2 [2021 UPDATE] THE BASICS OF REACT
+#3 [2021 UPDATE] STATE
+#3.2 setState part Two
